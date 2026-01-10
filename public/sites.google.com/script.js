@@ -9,7 +9,7 @@ fetch("pi.txt")
 
 function initGame() {
   let index = 0;
-  let input_pi = String(PI_STR).slice(0, index);
+  const input_pi = String(PI_STR).slice(0, index);
   const status = document.getElementById("status");
 
   document.addEventListener("keydown", function (event) {
