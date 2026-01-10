@@ -30,8 +30,16 @@ function initGame() {
       const input_pi = String(PI_STR).slice(0, index);
       status.textContent = `現在 ${index} 桁目まで正解: ${input_pi}`;
     } else {
-      const input_pi = String(PI_STR).slice(0, index);
-      status.textContent = `あなたの円周率: ${String(input_pi / 10 ** (index - 1))}`;
+      const input_digits = PI_STR.slice(0, index);
+      let display_pi;
+      if (input_digits.length === 0) {
+        display_pi = "";
+      } else if (input_digits.length === 1) {
+        display_pi = input_digits;
+      } else {
+        display_pi = "3." + input_digits.slice(1);
+      }
+      status.textContent = `${index}桁を入力 あなたの円周率: ${display_pi}`;
       index = 0;
     }
   });
